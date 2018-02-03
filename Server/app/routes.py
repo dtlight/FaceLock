@@ -12,13 +12,13 @@ def home():
     return render_template('home.html')
 
 @app.route('/logs')
-def home():
+def logs():
     return render_template('logs.html')
 
 @app.route('/settings')
-def home():
+def settings():
     return render_template('settings.html')
 
 @app.route('/unlock')
-def home():
+def unlock():
     return render_template('unlock.html')
