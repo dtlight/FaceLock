@@ -2,6 +2,10 @@ from flask import render_template, url_for, redirect, request
 from app import app, db, models
 from flask_user import login_required, current_user
 from app.models import User
+from werkzeug.utils import secure_filename
+UPLOAD_FOLDER = 'static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -24,4 +28,11 @@ def unlock():
     return render_template('unlock.html')
 
 
-@app.route('/piTest')
+@app.route('/piTest', methods=["POST"])
+def method():
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        print("1234")
+        return "HELLO"
