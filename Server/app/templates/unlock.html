@@ -1,43 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link type="text/css" rel="stylesheet" href="../static/css/base.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {% block head %}
-      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-      <title>FaceLock - {% block title %}{% endblock %}</title>
-    {% endblock %}
-  </head>
+{% extends "base.html" %}
+{% block title %}Unlock Door{% endblock %}
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="home.html" class="brand-logo">FaceLock</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!-- <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li> -->
-      </ul>
-    </div>
-  </nav>
+{% block pageTitle %}Unlock Door{% endblock %}
 
-  <body>
-    <div class="container">
+{% block content %}
 
-      <div class="row">
-        <div class="col s6 offset-s3"><h1 class="center-align">Unlock Door</h1></div>
-      </div>
-
-    </div>
-
-    <!-- <div id="footer">
-      {% block footer %}
-      &copy; Copyright 2017 by <a href="home.html">FaceLock</a>.
-      {% endblock %}
-    </div> -->
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  </body>
-</html>
+{% endblock %}
