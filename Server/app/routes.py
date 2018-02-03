@@ -22,3 +22,6 @@ def settings():
 @app.route('/unlock')
 def unlock():
     return render_template('unlock.html')
+
+
+@app.route('/piTest')
