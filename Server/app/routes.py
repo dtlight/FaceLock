@@ -30,9 +30,8 @@ def unlock():
 
 @app.route('/piTest', methods=["POST"])
 def method():
-    if request.method == 'POST':
-        file = request.files['file']
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    if 'file' not in (request.url):
+        if request.method == 'POST':
+            file = request.files['F']
         print("1234")
         return "HELLO"
