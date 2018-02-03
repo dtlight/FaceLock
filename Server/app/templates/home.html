@@ -25,44 +25,35 @@
   <body>
     <div class="container">
 
-          <div class="row">
-            <!-- <div class="col s12" style="border: 1px solid yellow"><span class="flow-text">This div is 12-columns wide on all screen sizes</span></div> -->
-            <div class="col s6 offset-s3"><h1 class="center-align">Login</h1></div>
-          </div>
+      <div class="row">
+        <div class="col s6 offset-s3"><h1 class="center-align">Home</h1></div>
+      </div>
 
-          <div class="row">
-
-            <form class="col s12" method="post" action="${callbackURL}">
-
-              <div class="row">
-                <div class="input-field col s6 offset-s3">
-                  <i class="material-icons prefix">account_circle</i>
-                  <input name="email" id="icon_prefix" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6 offset-s3">
-                  <i class="material-icons prefix">lock</i>
-                  <input name="password" id="icon_prefix" type="password" class="validate">
-                  <label for="icon_prefix">Password</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="input-field col s6 offset-s3">
-                  <button class="btn-large waves-effect waves-light col s6 offset-s3" type="submit" name="action">Login
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
-              </div>
-
-            </form>
-
-          </div>
-
+      <div class="row">
+        <div class="input-field col s12">
+          <a href="unlock.html" class="btn-large waves-effect waves-light col s6 offset-s3">
+            <i class="material-icons left">lock_open</i>Unlock Door
+          </a>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <a href="settings.html" class="btn-large waves-effect waves-light col s6 offset-s3">
+            <i class="material-icons left">settings</i>Settings
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <a href="logs.html" class="btn-large waves-effect waves-light col s6 offset-s3">
+            <i class="material-icons left">list</i>Logs
+          </a>
+        </div>
+      </div>
+
+    </div>
 
     <!-- <div id="footer">
       {% block footer %}
