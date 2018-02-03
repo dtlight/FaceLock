@@ -5,12 +5,20 @@ from app.models import User
 @app.route('/')
 @app.route('/index')
 def index():
-    print(User.query.all())
     return render_template('login.html')
 
-@app.route('/test')
-def test():
-	u = User.query.get(1)
-	print(u)
-	return u.username
+@app.route('/home')
+def home():
+    return render_template('home.html')
 
+@app.route('/logs')
+def home():
+    return render_template('logs.html')
+
+@app.route('/settings')
+def home():
+    return render_template('settings.html')
+
+@app.route('/unlock')
+def home():
+    return render_template('unlock.html')
