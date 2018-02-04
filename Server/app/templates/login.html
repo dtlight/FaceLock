@@ -11,27 +11,28 @@
 
 <div class="row">
 
-  <form class="col s12" method="post" action="${callbackURL}">
-
+  <form class="col s12" method="post" action="">
+    {{ form.hidden_tag() }}
     <div class="row">
       <div class="input-field col s6 offset-s3">
         <i class="material-icons prefix">account_circle</i>
-        <input name="email" id="icon_prefix" type="email" class="validate">
-        <label for="email">Email</label>
+        {{ form.username.label }}<br>
+        {{ form.username(size=32) }}
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6 offset-s3">
         <i class="material-icons prefix">lock</i>
-        <input name="password" id="icon_prefix" type="password" class="validate">
-        <label for="icon_prefix">Password</label>
+          {{ form.password.label }}<br>
+          {{ form.password(size=32) }}
       </div>
     </div>
 
     <div class="row">
       <div class="input-field col s6 offset-s3">
-        <button class="btn-large waves-effect waves-light col s6 offset-s3" type="submit" name="action">Login
+         {{ form.submit() }} 
+{{ form.submit(class="btn-large waves-effect waves-light col s6 offset-s3") }}
           <i class="material-icons right">send</i>
         </button>
       </div>

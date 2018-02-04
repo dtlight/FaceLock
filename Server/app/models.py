@@ -4,7 +4,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
-    passowrd = db.Column(db.String(128))
+    password = db.Column(db.String(128))
     password_hash = db.Column(db.String(128))
     profile = db.relationship('Profile', backref='user', lazy=True, uselist=False)
     log = db.relationship('Log', backref='user', lazy=True)

@@ -6,13 +6,24 @@ from werkzeug.utils import secure_filename
 import json
 import base64
 import os
+from app.forms import LoginForm
+
 UPLOAD_FOLDER = 'static/images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=["GET", "POST"])
+@app.route('/index', methods=["GET", "POST"])
 def index():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+    	if form.username.data == "admin":
+            admin = db.session.query(User).filter_by(username="admin").all()
+            admin_pw = admin[0].password        
+            if admin_pw == form.password.data:
+                     
+                return redirect(url_for('settings'))
+
+    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/home')
 def home():
@@ -22,7 +33,7 @@ def home():
 def logs():
     return render_template('logs.html')
 
-@app.route('/settings')
+@app.route('/settings', methods=["GET"])
 def settings():
     return render_template('settings.html')
 
