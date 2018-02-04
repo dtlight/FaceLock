@@ -21,7 +21,7 @@ def index():
             admin_pw = admin[0].password        
             if admin_pw == form.password.data:
                      
-                return redirect(url_for('settings'))
+                return redirect(url_for('home'))
 
     return render_template('login.html', title='Sign In', form=form)
 
@@ -44,7 +44,7 @@ def unlock():
 
 @app.route('/pi', methods=["GET", "POST"])
 def parse_request():
-    if request.json:
+    if request.method == 'POST' and request.json:
         img = request.get_json()
         image_64_decode = ''
         for key in img: 
@@ -52,6 +52,6 @@ def parse_request():
             abspath = os.path.abspath(os.path.dirname(__file__))
             image_result = open(abspath + '/static/images/image.jpg','wb')
             image_result.write(image_64_decode)
-        
+        return "Hi"        
     if request.method == 'GET':
         return '<img src="' + url_for('static', filename='images/image.jpg') + '">'
