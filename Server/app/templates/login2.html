@@ -2,6 +2,11 @@
 
 {% block content %}
     <h1>Sign In</h1>
+
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -12,7 +17,6 @@
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit(class="btn-large waves-effect waves-light col s6 offset-s3") }}</p>
     </form>
 {% endblock %}

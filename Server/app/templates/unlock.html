@@ -4,5 +4,9 @@
 {% block pageTitle %}Unlock Door{% endblock %}
 
 {% block content %}
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
 
+<script type="text/javascript" src="{{ url_for('static', filename = 'unlock.js') }}"></script>
 {% endblock %}

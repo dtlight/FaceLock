@@ -42,16 +42,16 @@ def unlock():
     return render_template('unlock.html')
 
 
-@app.route('/pi', methods=["POST"])
+@app.route('/pi', methods=["GET", "POST"])
 def parse_request():
-    if not request.json:
-        abort(400)
-    img = request.get_json()
-    image_64_decode = ''
-    for key in img: 
-        image_64_decode = base64.b64decode(img[key])
-        abspath = os.path.abspath(os.path.dirname(__file__))
-        image_result = open(abspath + '/static/images/image.jpg','wb')
-        image_result.write(image_64_decode)
+    if request.json:
+        img = request.get_json()
+        image_64_decode = ''
+        for key in img: 
+            image_64_decode = base64.b64decode(img[key])
+            abspath = os.path.abspath(os.path.dirname(__file__))
+            image_result = open(abspath + '/static/images/image.jpg','wb')
+            image_result.write(image_64_decode)
         
-    return "Hi"
+    if request.method == 'GET':
+        return '<img src="' + url_for('static', filename='images/image.jpg') + '">'
