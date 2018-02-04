@@ -1,6 +1,7 @@
 from Led import *
 from Constants import *
-
+import face_recognition
+import os
 
 class FaceLock:
     def __init__(self):
@@ -19,10 +20,23 @@ class FaceLock:
             self.red_led.on()
 
     def detect(self):
-        return False
+        image = face_recognition.load_image_file("../Server/app/static/images/temp/unknown.jpg")
+        self.recognise(image)
 
     def failure(self):
         self.red_led.blink()
+
+    def recognise(self, image):
+        for filename in os.listdir("../Server/app/static/images/face"):
+            if filename.endswith(".jpg"):
+                print(os.path.join("../Server/app/static/images/face", filename))
+                continue
+            else:
+                continue
+
+        face_encoding = face_recognition.face_encodings(image)[0]
+        for photo in photos:
+            results = face_recognition.compare_faces([face_encoding], unknown_face_encoding)
 
     def pending(self):
         self.yellow_led.on()
