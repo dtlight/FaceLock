@@ -14,3 +14,10 @@ cython
 imutils
 python-sklearn
 python-skimage
+
+Acknowledgments:
+
+Prior to tthis weekend we had zero image processessing experience so it's been a tough but super informative 24 hours. This project wouldn't be possible without the use of Open Source Computer Vision Library (Open CV), cam.raspberry pi, Raspberrypi.org and several other resources.
+
+The Open CV library facilitates face recognition and machine learning. You can read more here:
+https://docs.opencv.org/2.4/modules/contrib/doc/facerec/facerec_tutorial.html
